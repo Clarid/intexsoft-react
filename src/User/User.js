@@ -1,5 +1,5 @@
 import React from 'react'
-import './User.css'
+import classes from './User.css'
 import Radium from 'radium'
 
 const User = props => {
@@ -13,27 +13,29 @@ const User = props => {
         }
     };
 
-    const classes = ['input'];
+    const inpClasses = [classes.input];
 
     if (props.name.length) {
-        classes.push('green');
+        inpClasses.push(classes.green);
     } else {
-        classes.push('red');
+        inpClasses.push(classes.red);
     }
 
     if (props.name.length > 4) {
-        classes.push('bold');
+        inpClasses.push(classes.bold);
     }
 
     return (
-        <div className='User' style={divStyle}>
+        <Radium>
+        <div className={classes.User} style={divStyle}>
             <h1>{props.name}</h1>
             <h2>{props.age} years old</h2>
-            <input className={classes.join(' ')} type='text' onChange={props.onChangeName} defaultValue={props.name}></input>
+            <input className={inpClasses.join(' ')} type='text' onChange={props.onChangeName} defaultValue={props.name}></input>
             <button onClick={props.onChangeTitle}>Change title</button>
             <button onClick={props.onDeleteUser}>Delete user</button>
         </div>
+        </Radium>
     )
 }
 
-export default Radium(User);
+export default User;

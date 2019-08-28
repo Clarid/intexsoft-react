@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import classes from './App.css';
 import User from './User/User'
 
 class App extends React.Component {
@@ -48,7 +48,7 @@ class App extends React.Component {
     }
 
     return (
-      <div className='App'>
+      <div className={classes.App}>
         <h1>{this.state.pageTitle}</h1>
         <button onClick={this.changeTitleHandler.bind(this, 'Default')}>Change title</button>
         <button onClick={() => this.toggleUsersListHandler()}>Toggle users list</button>
