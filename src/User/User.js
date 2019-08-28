@@ -26,7 +26,6 @@ const User = props => {
     }
 
     return (
-        <Radium>
         <div className={classes.User} style={divStyle}>
             <h1>{props.name}</h1>
             <h2>{props.age} years old</h2>
@@ -34,8 +33,7 @@ const User = props => {
             <button onClick={props.onChangeTitle}>Change title</button>
             <button onClick={props.onDeleteUser}>Delete user</button>
         </div>
-        </Radium>
     )
 }
 
-export default User;
+export default Radium(User);
